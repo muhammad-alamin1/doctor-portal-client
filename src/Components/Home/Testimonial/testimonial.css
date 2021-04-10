@@ -1,0 +1,16 @@
+.card .card-footer{
+    background:transparent;
+}
+#card{
+    max-width: 100%;
+    
+}
+.card-container{
+    float: left;
+    max-width: 33.33%;
+    
+}
+.card{
+    margin: 10px 10px;
+    padding:10px;
+}

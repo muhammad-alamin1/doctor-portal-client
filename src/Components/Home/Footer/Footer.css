@@ -1,0 +1,22 @@
+#footer-section{
+    background-image: url('../../../images/footer-bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding:50px;
+}
+#footer-section ul li{
+    list-style: none;
+}
+#footer-section ul li a{
+    text-decoration: none;
+}
+#footer-section ul li a:hover{
+    text-decoration: underline;
+}
+.icon{
+    
+    
+    
+    
+}
