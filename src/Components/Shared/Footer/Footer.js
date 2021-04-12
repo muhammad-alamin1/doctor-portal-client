@@ -17,7 +17,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-md-3">
-                    <h6 style={{color: '#1CC7C1' }}>Services</h6>
+                    <h6 style={{color: '#1CC7C1',marginLeft:'30px' }}>Services</h6>
                     <ul>
                         <li><a href="#">Emergency Dental Care</a></li>
                         <li><a href="#">Check Up</a></li>
@@ -29,7 +29,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-md-3">
-                <h6 style={{color: '#1CC7C1' }}>Our Health</h6>
+                <h6 style={{color: '#1CC7C1',marginLeft:'30px' }}>Our Health</h6>
                     <ul>
                         <li><a href="#">Emergency Dental Care</a></li>
                         <li><a href="#">Check Up</a></li>
@@ -41,7 +41,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-md-3">
-                <h6 style={{color: '#1CC7C1' }}>Our Address</h6>
+                <h6 style={{color: '#1CC7C1',marginLeft:'30px' }}>Our Address</h6>
                     <ul>
                         <li><a href="#">New York-1101010 Hudson <br/> Yards</a></li>
                         <ul className="d-flex my-3 ">
@@ -52,7 +52,7 @@ const Footer = () => {
                     </ul>
                     <div>
                         <span className="my-2">Call Now</span><br/>
-                        <button type="button" className="btn btn-primary">+2878125612891</button>
+                        <button type="button" className="btn-brand">+2878125612891</button>
                     </div>
                 </div>
             </div>

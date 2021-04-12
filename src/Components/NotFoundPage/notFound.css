@@ -1,0 +1,7 @@
+#not-found{
+    background:url('../../images/404_not_found.png') no-repeat center center / cover;
+    height:100vh;
+}
+#not-found h1{
+    margin-top: 40px;
+}

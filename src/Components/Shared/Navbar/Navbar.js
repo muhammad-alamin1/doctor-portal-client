@@ -12,13 +12,13 @@ const Navbar = () => {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link ms-4 ms-5 mr-5 active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link ms-4 ms-5 mr-5 active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ms-4 ms-5 mr-5" href="#">About</a>
+                            <a class="nav-link ms-4 ms-5 mr-5" href="/appointment">Appointment</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ms-4 ms-5 mr-5 text-white" href="#">Dental Services</a>
+                            <a class="nav-link ms-4 ms-5 mr-5 " href="/dashboard/appointment">Shedule</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ms-4 ms-5 mr-5 text-white" href="#">Reviews</a>
@@ -30,6 +30,8 @@ const Navbar = () => {
                             <a class="nav-link ms-4 ms-5 mr-5 text-white" href="#">Contact Us</a>
                         </li>
                     </ul>
+                    <a href="/login"><button type="button" className="btn-brand me-2">Sign In</button></a>
+                    <a href="/signup"><button type="button" className="btn-brand">Sign Up</button></a>
                 </div>
             </div>
         </nav>

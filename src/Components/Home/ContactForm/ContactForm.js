@@ -9,14 +9,14 @@ const ContactForm = () => {
                 <h3 className="text-white">Always Contact With Us</h3>
             </div>
             <div id="form-div">
-                <form className="text-center " >
+                <form action="" className="text-center " >
                     <input type="email" name="email" className="form-control" placeholder="E-mail Address*" required />
                     <br /><br />
                     <input type="text" name="subject" className="form-control" placeholder="Subject*" required />
                     <br /><br />
                     <textarea id="msg-area" className="form-control" placeholder="Your Message" style={{ resize: 'none', height: '150px' }} ></textarea>
                     <br /><br />
-                    <input type="submit" id="submit-btn" valid="Submit" className="btn btn-primary" />
+                    <input type="submit" id="submit-btn" valid="Submit" className="btn-brand" />
                 </form>
             </div>
         </section>

@@ -8,7 +8,7 @@ const HeaderMain = () => {
             <div className="col-md-4 offset-1">
                 <h1>Your New Smile <br/> Starts Here</h1>
                 <p className="text-secondary">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                <button className="btn btn-primary">GET APPOINTMENT</button>
+                <button className="btn-brand">GET APPOINTMENT</button>
             </div>
             <div className="col-md-6">
                 <img src={chair} alt="chair" className="img-fluid" />
