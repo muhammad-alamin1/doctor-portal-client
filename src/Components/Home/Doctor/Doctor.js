@@ -1,9 +1,11 @@
-import React from 'react';
-import doctor from '../../../images/appointment-doctor.png'
+import React, { useContext } from 'react';
+import doctor from '../../../images/appointment-doctor.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 
+
 const Doctor = () => {
+    
     return (
         <div className="doctor text-center col-md-4" style={{marginBottom:'100px'}}>
             <img src={doctor} alt="doctor" className="img-fluid" />

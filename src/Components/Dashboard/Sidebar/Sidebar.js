@@ -3,7 +3,7 @@ import './sidebar.css';
 import React from 'react';
 import { a } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faGripHorizontal, faCalendar, faUserFriends, faFileAlt, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faGripHorizontal, faCalendar, faUserFriends, faFileAlt, faCog, faSignOutAlt ,faUser} from '@fortawesome/free-solid-svg-icons';
 
 
 const Sidebar = () => {
@@ -37,11 +37,16 @@ const Sidebar = () => {
                     </a>
                 </li>
                 <li>
+                    <a href="/adddoctor" className="text-white">
+                        <FontAwesomeIcon icon={faUser} /> <span>Add Doctor</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#" className="text-white">
                         <FontAwesomeIcon icon={faCog} /><span>Settings</span>
                     </a>
                 </li>
-                <div style={{ marginTop: '300px' }}>
+                <div style={{ marginTop: '260px' }}>
                     <a style={{ textDecoration: 'none' }} href="/home" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></a>
                 </div>
             </ul>

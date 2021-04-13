@@ -1,19 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './login.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import LoginBg from '../../../images/loginBg.png';
 import Navbar from '../../Shared/Navbar/Navbar';
+import { userContext } from '../../../App';
+import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
     const [user, setUser] = useState({
         email: '',
         password: '',
         success: false,
         error: '',
     });
-
+    
 
     // submit form
     const handleSubmit = (event) => {
@@ -24,22 +31,40 @@ const Login = () => {
                 newUserInfo.success = true;
                 newUserInfo.error = '';
                 setUser(newUserInfo);
-
+                history.push('/dashboard');
+                // setLoggedInUser(newUserInfo);
+                storeAuthToken();
             })
             .catch((error) => {
                 const newUserInfo = { ...user };
                 newUserInfo.success = false;
                 newUserInfo.error = error.message;
-                setUser(newUserInfo)
+                setUser(newUserInfo);
+                // setLoggedInUser(newUserInfo);
             });
         event.preventDefault();
     }
     // handle blur
     const handleChange = (event) => {
-        const newUserInfo = { ...user};
+        const newUserInfo = { ...user };
         newUserInfo[event.target.name] = event.target.value;
         setUser(newUserInfo)
     }
+
+
+    // Verify ID token 
+    const storeAuthToken = () => {
+        firebase.auth()
+            .currentUser
+            .getIdToken(/* forceRefresh */ true)
+            .then(function (idToken) {
+                sessionStorage.setItem('token', idToken);
+                history.replace(from);
+            }).catch(function (error) {
+
+            });
+    }
+
     document.title = 'Login';
     return (
         <div className="login-form container">
@@ -57,9 +82,9 @@ const Login = () => {
                     </form>
                     {/* success and error messages*/}
                     {
-                        user.success && <p className="my-3" style={{color:'green'}}>Sign In Successfully</p>
+                        user.success && <p className="my-3" style={{ color: 'green' }}>Sign In Successfully</p>
                     }
-                    <p style={{color:'red'}}>{user.error}</p>
+                    <p style={{ color: 'red' }}>{user.error}</p>
                 </div>
                 <div className="col-md-6 login-right">
                     <img src={LoginBg} alt="loginBG" className="img-fluid" />
