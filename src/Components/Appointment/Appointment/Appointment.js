@@ -10,6 +10,7 @@ const Appointment = () => {
         // console.log(date)
         setSelectedDate(date);
     }
+    document.title = 'Appointment';
     return (
         <div>
             <Navbar></Navbar>

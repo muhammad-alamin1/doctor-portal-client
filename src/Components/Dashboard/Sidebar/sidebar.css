@@ -13,6 +13,6 @@
 .sidebar svg{
     margin-right: 5px;
 }
-.sidebar li {
+.sidebar li a{
     text-decoration: none;
 }

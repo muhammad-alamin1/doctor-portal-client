@@ -14,7 +14,7 @@ const containerStyle = {
 const Dashboard = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [appointments, setAppointments] = useState([]);
-    
+
 
     const handleDateChange = date => {
         // console.log(date)
@@ -27,28 +27,29 @@ const Dashboard = () => {
         fetch('http://localhost:5000/appointmentByDate', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({date: selectedDate })
+            body: JSON.stringify({ date: selectedDate })
         })
             .then(response => response.json())
             .then(data => {
                 setAppointments(data)
             })
     }, [selectedDate])
+    document.title = 'Dashboard';
     return (
         <section >
-        
-            <div style={containerStyle} className=" row ">
+
+            <div style={containerStyle} className=" row  ">
                 <div className="col-md-2">
                     <Sidebar />
                 </div>
-                <div className="col-md-5 ">
-                    <Calendar
-                        onChange={handleDateChange}
-                        value={new Date()}
-                    />
-                </div>
+                    <div className="col-md-5  ">
+                        <Calendar
+                            onChange={handleDateChange}
+                            value={new Date()}
+                        />
+                    </div>
                 <div className="col-md-5">
-                    <AppointmentByDate appointments={appointments} date={selectedDate}/>
+                    <AppointmentByDate appointments={appointments} date={selectedDate} />
                 </div>
             </div>
         </section>

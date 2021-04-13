@@ -40,6 +40,7 @@ const Login = () => {
         newUserInfo[event.target.name] = event.target.value;
         setUser(newUserInfo)
     }
+    document.title = 'Login';
     return (
         <div className="login-form container">
             <Navbar />
