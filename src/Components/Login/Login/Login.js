@@ -6,22 +6,16 @@ import "firebase/auth";
 import LoginBg from '../../../images/loginBg.png';
 import Navbar from '../../Shared/Navbar/Navbar';
 import { userContext } from '../../../App';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    let history = useHistory();
-    let location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
-
-    const [user, setUser] = useState({
-        email: '',
-        password: '',
-        success: false,
-        error: '',
-    });
     
+    const [user, setUser] = useContext(userContext);
 
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+    
     // submit form
     const handleSubmit = (event) => {
         firebase.auth().signInWithEmailAndPassword(user.email, user.password)
@@ -31,8 +25,7 @@ const Login = () => {
                 newUserInfo.success = true;
                 newUserInfo.error = '';
                 setUser(newUserInfo);
-                history.push('/dashboard');
-                // setLoggedInUser(newUserInfo);
+                // history.push('/dashboard');
                 storeAuthToken();
             })
             .catch((error) => {
@@ -40,7 +33,7 @@ const Login = () => {
                 newUserInfo.success = false;
                 newUserInfo.error = error.message;
                 setUser(newUserInfo);
-                // setLoggedInUser(newUserInfo);
+                
             });
         event.preventDefault();
     }
@@ -59,7 +52,7 @@ const Login = () => {
             .getIdToken(/* forceRefresh */ true)
             .then(function (idToken) {
                 sessionStorage.setItem('token', idToken);
-                history.replace(from);
+                
             }).catch(function (error) {
 
             });

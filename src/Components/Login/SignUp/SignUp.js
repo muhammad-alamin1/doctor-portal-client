@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../Login/firebase.config";
 import signUpBg from '../../../images/loginBg.png';
 import Navbar from '../../Shared/Navbar/Navbar';
+import { userContext } from '../../../App';
+import { useHistory, useLocation } from 'react-router-dom';
 
 
 
@@ -15,14 +17,11 @@ if (!firebase.apps.length) {
 
 const SignUp = () => {
 
-    
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        password: '',
-        success: false,
-        error: '',
-    });
+    const [user, setUser] = useContext(userContext);
+
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
 
     // submit form 
     const handleSubmit = (event) => {
@@ -34,6 +33,7 @@ const SignUp = () => {
                     newUserInfo.success = true;
                     newUserInfo.error = '';
                     setUser(newUserInfo);
+                    // history.replace(from);
                     console.log(user);
                 })
                 .catch((error) => {
