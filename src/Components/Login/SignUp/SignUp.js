@@ -1,82 +1,57 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
-import React, { useContext, useState } from 'react';
-import firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from "../Login/firebase.config";
+import React from 'react';
 import signUpBg from '../../../images/loginBg.png';
 import Navbar from '../../Shared/Navbar/Navbar';
-import { userContext } from '../../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
-
-
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
 
 const SignUp = () => {
-
-    const [user, setUser] = useContext(userContext);
+    const { register, handleSubmit} = useForm();
 
     const history = useHistory();
-    const location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
 
-    // submit form 
-    const handleSubmit = (event) => {
-        console.log(user.email , user.password);
-            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-                .then((response) => {
-                    const user = response.user;
-                    const newUserInfo = { ...user };
-                    newUserInfo.success = true;
-                    newUserInfo.error = '';
-                    setUser(newUserInfo);
-                    // history.replace(from);
-                    console.log(user);
-                })
-                .catch((error) => {
-                    const newUserInfo = { ...user };
-                    newUserInfo.error = error.message;;
-                    newUserInfo.success = false;
-                    setUser(newUserInfo);
-                    // console.log(errorCode, errorMessage)
-                });
-        event.preventDefault();
-        
-    }
+    const onSubmit = data => {
+        data.created = new Date();
 
-    // input handle change event
-    const handleChange = (event) => {
-        // console.log(event.target.name,event.target.value);
-        const newUserInfo = { ...user };
-        newUserInfo[event.target.name] = event.target.value;
-        setUser(newUserInfo);
-    }
+        fetch(`http://localhost:5000/users/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(success => {
+            if(success) {
+                setTimeout(() => {
+                    alert('User Created Successfully.!');
+                    //after submit form redirect user
+                }, 1000);
+                
+            }
+        })
+        history.push('/login');
+    };
+
+    // title
     document.title = 'Sign Up';
     return (
         <div className="login-form container">
             <Navbar />
             <div className="row align-items-center">
                 <div className="col-md-6  login-left">
-                    <form action="" onSubmit={handleSubmit}>
-                        <label htmlFor="">User name</label>
-                        <input type="text" onBlur={handleChange} name="userName" className="form-control" required />
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <label htmlFor="username">User name</label>
+                        <input type="text" ref={register({ required: true })} name="userName" className="form-control" id="username" required />
                         <br />
-                        <label htmlFor="">E-mail</label>
-                        <input type="email" onBlur={handleChange} name="email" className="form-control" required />
+                        <label htmlFor="email">E-mail</label>
+                        <input type="email" ref={register({ required: true })} name="email" className="form-control" id="email" required />
                         <br />
-                        <label htmlFor="">Password</label>
-                        <input type="password" onBlur={handleChange} name="password" className="form-control" required />
+                        <label htmlFor="password">Password</label>
+                        <input type="password" ref={register({ required: true })} name="password" className="form-control" id="password" required />
                         <br/>
                         <input type="submit" className="btn-brand" value="Sign Up" />
                     </form>
-                    {/* success message & error*/}
-                    {
-                        user.success && <p style={{color:'green'}}>User Create Successfully</p>
-                    }
-                    <p style={{color:'red'}} className="my-3">{user.error}</p>
                     
                 </div>
                 <div className="col-md-6 login-right">

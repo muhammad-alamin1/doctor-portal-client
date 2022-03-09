@@ -8,7 +8,7 @@ import { faHome, faGripHorizontal, faCalendar, faUserFriends, faFileAlt, faCog, 
 
 const Sidebar = () => {
     return (
-        <div className="sidebar d-flex flex-column justify-content-between py-5 px-5" style={{ height: '100vh' }}>
+        <div className="sidebar d-flex flex-column justify-content-between py-5 px-2" style={{ height: '100vh', width: '220px'}}>
             <ul className="">
                 <li>
                     <a href="/home" className="text-white">

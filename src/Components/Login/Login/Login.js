@@ -1,61 +1,31 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import './login.css';
-import React, { useContext, useState } from 'react';
-import firebase from "firebase/app";
-import "firebase/auth";
+import React from 'react';
 import LoginBg from '../../../images/loginBg.png';
 import Navbar from '../../Shared/Navbar/Navbar';
-import { userContext } from '../../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const Login = () => {
-    
-    const [user, setUser] = useContext(userContext);
-
     const history = useHistory();
-    const location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
-    
-    // submit form
-    const handleSubmit = (event) => {
-        firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-            .then((response) => {
-                const user = response.user;
-                const newUserInfo = { ...user };
-                newUserInfo.success = true;
-                newUserInfo.error = '';
-                setUser(newUserInfo);
-                // history.push('/dashboard');
-                storeAuthToken();
-            })
-            .catch((error) => {
-                const newUserInfo = { ...user };
-                newUserInfo.success = false;
-                newUserInfo.error = error.message;
-                setUser(newUserInfo);
-                
-            });
-        event.preventDefault();
-    }
-    // handle blur
-    const handleChange = (event) => {
-        const newUserInfo = { ...user };
-        newUserInfo[event.target.name] = event.target.value;
-        setUser(newUserInfo)
-    }
+    const { register, handleSubmit} = useForm();
 
+    // login submit form
+    const onSubmit = data => {
+        console.log(data);
+        
+        axios.post(`http://localhost:5000/users/login`, {
+            email: data.email,
+            password: data.password
+        })
+        .then(success => {
+           console.log(success);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
-    // Verify ID token 
-    const storeAuthToken = () => {
-        firebase.auth()
-            .currentUser
-            .getIdToken(/* forceRefresh */ true)
-            .then(function (idToken) {
-                sessionStorage.setItem('token', idToken);
-                
-            }).catch(function (error) {
-
-            });
+        history.push('/dashboard');
     }
 
     document.title = 'Login';
@@ -64,20 +34,15 @@ const Login = () => {
             <Navbar />
             <div className="row align-items-center">
                 <div className="col-md-6  login-left">
-                    <form action="" onSubmit={handleSubmit}>
-                        <label htmlFor="">E-mail</label>
-                        <input type="email" onBlur={handleChange} name="email" className="form-control" required />
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <label htmlFor="email">E-mail</label>
+                        <input type="email" ref={register({ required: true })} name="email" className="form-control" id="email" required />
                         <br />
-                        <label htmlFor="">Password</label>
-                        <input type="password" onBlur={handleChange} name="password" className="form-control" required />
+                        <label htmlFor="password">Password</label>
+                        <input type="password" ref={register({ required: true })} name="password" className="form-control" required />
                         <br />
                         <input type="submit" className="btn-brand" value="Sign In" />
                     </form>
-                    {/* success and error messages*/}
-                    {
-                        user.success && <p className="my-3" style={{ color: 'green' }}>Sign In Successfully</p>
-                    }
-                    <p style={{ color: 'red' }}>{user.error}</p>
                 </div>
                 <div className="col-md-6 login-right">
                     <img src={LoginBg} alt="loginBG" className="img-fluid" />

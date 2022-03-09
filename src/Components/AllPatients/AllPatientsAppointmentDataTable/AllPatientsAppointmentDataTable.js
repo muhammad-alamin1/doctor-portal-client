@@ -2,7 +2,7 @@ import React from 'react';
 
 const AllPatientsAppointmentDataTable = ({allPatients}) => {
     return (
-        <table className="table ">
+        <table className="table">
             <thead>
                 <tr>
                     <th className="text-secondary">Sr. No</th>
@@ -15,7 +15,7 @@ const AllPatientsAppointmentDataTable = ({allPatients}) => {
                 </tr>
             </thead>
             <tbody>
-                {
+            {
                     allPatients.map((patient , index) =>
                         <tr>
                             <td>{index + 1}</td>
@@ -27,7 +27,7 @@ const AllPatientsAppointmentDataTable = ({allPatients}) => {
                             <td>{patient.email}</td>
                         </tr>
                     )
-                }
+                }                         
             </tbody>
         </table>
     );

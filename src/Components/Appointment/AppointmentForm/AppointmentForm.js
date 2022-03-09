@@ -20,7 +20,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
     // react hook form
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
-        // console.log(data);
+        console.log(data);
         data.service = appointmentOn;
         data.date = date;
         data.created = new Date();

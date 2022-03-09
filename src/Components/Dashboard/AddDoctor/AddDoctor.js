@@ -1,44 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 
 const AddDoctor = () => {
-    const [info, setInfo] = useState({});
-    const [file, setFile] = useState(null);
-
-    // email & name change
-    const handleBlur = event => {
-        const newInfo = { ...info };
-        newInfo[event.target.name] = event.target.value;
-        setInfo(newInfo);
-    }
-
-    // file change
-    const handleFileChange = event => {
-        const newFile = event.target.files[0];
-        setFile(newFile);
-    }
-
-    // Submitted
-    const handleSubmit = () => {
-        const formData = new FormData()
-        formData.append('file', file);
-        formData.append('name', info.name);
-        formData.append('email', info.email);
-
-
-        fetch('http://localhost:5000/addADoctor', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }
-
     return (
         <div className="row">
             <div className="col-md-2">
@@ -46,20 +9,25 @@ const AddDoctor = () => {
             </div>
             <div className="col-md-10">
                 <h4 style={{ color: '#1CC7C1' }} className="m-4">Add a Doctor</h4>
-                <form onSubmit={handleSubmit}>
+                <form action="http://localhost:5000/doctor/upload" method="POST" enctype="multipart/form-data" >
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input onBlur={handleBlur} type="email" className="form-control" name="email" placeholder="Enter email" />
+                        <label for="name">Name</label>
+                        <input type="text" id="name" className="form-control" name="name" placeholder="name" required />
                     </div>
                     <br />
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Name</label>
-                        <input onBlur={handleBlur} type="text" className="form-control" name="name" placeholder="name" />
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" className="form-control" name="email" placeholder="Enter email" required />
                     </div>
                     <br />
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Upload a Images</label>
-                        <input onChange={handleFileChange} type="file" className="form-control" />
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" className="form-control" name="phone" placeholder="Enter phone" required />
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label for="avatar">Upload a Images</label>
+                        <input type="file" id="avatar" name="avatar" className="form-control" required />
                     </div>
                     <br />
                     <button type="submit" class="btn btn-brand">Submit</button>

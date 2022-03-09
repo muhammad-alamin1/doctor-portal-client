@@ -6,7 +6,7 @@ const BlogPost = (props) => {
     return (
         <div id="BlogCard">
             <div className="card-container">
-                <div className="card " style={{marginBottom:'100px'}}>
+                <div className="card" style={{marginBottom:'100px'}}>
                     <div className="card-header d-flex  align-items-center">
                         <img className="mx-3" src={authorImg} alt="" width="60" />
                         <div>
