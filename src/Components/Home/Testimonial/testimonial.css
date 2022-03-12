@@ -3,7 +3,7 @@
 }
 #card{
     max-width: 100%;
-    
+    min-height: auto;
 }
 .card-container{
     float: left;
@@ -13,4 +13,5 @@
 .card{
     margin: 10px 10px;
     padding:10px;
+    box-shadow: 4px 4px 10px rgb(83, 78, 78);
 }

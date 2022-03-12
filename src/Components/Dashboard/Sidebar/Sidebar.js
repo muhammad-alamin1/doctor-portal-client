@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './sidebar.css';
 import React from 'react';
-import { a } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faGripHorizontal, faCalendar, faUserFriends, faFileAlt, faCog, faSignOutAlt ,faUser} from '@fortawesome/free-solid-svg-icons';
 
@@ -37,8 +36,13 @@ const Sidebar = () => {
                     </a>
                 </li>
                 <li>
-                    <a href="/adddoctor" className="text-white">
+                    <a href="/addDoctor" className="text-white">
                         <FontAwesomeIcon icon={faUser} /> <span>Add Doctor</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/review" className="text-white">
+                        <FontAwesomeIcon icon={faUser} /> <span>Review</span>
                     </a>
                 </li>
                 <li>

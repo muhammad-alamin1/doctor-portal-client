@@ -17,7 +17,7 @@ import AllPatients from './Components/AllPatients/AllPatients/AllPatients';
 import AllPatientsPrescription from './Components/AllPatientsPrescription/AllPatientsPrescription/AllPatientsPrescription';
 import MainDashboard from './Components/Dashboard/MainDashboard/MainDashboard';
 import AddDoctor from './Components/Dashboard/AddDoctor/AddDoctor';
-import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
+import Review from './Components/Dashboard/Review/Review';
 
 
 // Create Context
@@ -29,7 +29,7 @@ function App() {
     password: '',
     success: false,
     error: '',
-});
+  });
 
   return (
     <userContext.Provider value={[user, setUser]}>
@@ -53,8 +53,11 @@ function App() {
           <Route path="/prescriptions">
             <AllPatientsPrescription />
           </Route>
-          <Route path="/adddoctor">
+          <Route path="/addDoctor">
             <AddDoctor />
+          </Route>
+          <Route path="/review">
+            <Review />
           </Route>
           <Route path="/login">
             <Login />
