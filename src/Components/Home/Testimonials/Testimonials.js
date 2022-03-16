@@ -6,7 +6,7 @@ import Testimonial from '../Testimonial/Testimonial';
 const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
 
-    fetch(`http://localhost:5000/dashboard/review`)
+    fetch(`http://localhost:5000/review`)
         .then((response) => response.json())
         .then(data => {
             setReviews(data.reviews);

@@ -9,7 +9,7 @@ export default function Review() {
             </div>
             <div className="col-md-10">
                 <h4 style={{ color: '#1CC7C1' }} className="m-4">Review</h4>
-                <form action="http://localhost:5000/dashboard/review" method="POST" enctype="multipart/form-data" >
+                <form action="http://localhost:5000/review" method="POST" enctype="multipart/form-data" >
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" className="form-control" name="name" placeholder="name" required />

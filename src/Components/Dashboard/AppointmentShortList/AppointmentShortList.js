@@ -11,15 +11,7 @@ const AppointmentShortList = ({ appointments }) => {
                 </tr>
             </thead>
             <tbody>
-                {
-                    appointments.map(appointment =>
-                        <tr>
-                            <td>{appointment.name}</td>
-                            <td>{appointment.phone}</td>
-                            <td>{appointment.email}</td>
-                        </tr>
-                    )
-                }
+
             </tbody>
         </table>
     );

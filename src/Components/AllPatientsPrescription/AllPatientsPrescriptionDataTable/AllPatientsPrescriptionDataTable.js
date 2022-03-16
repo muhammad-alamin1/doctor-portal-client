@@ -10,8 +10,9 @@ const AllPatientsPrescriptionDataTable = ({ prescriptions }) => {
                     <th>Name</th>
                     <th>Contact</th>
                     <th>Prescription</th>
+                    <th>Doctor</th>
+                    <th className="btn btn-outline-primary">View</th>
                 </tr>
-                
             </thead>
             {
                 prescriptions.map((prescription, index) =>
@@ -21,13 +22,12 @@ const AllPatientsPrescriptionDataTable = ({ prescriptions }) => {
                             <td>{prescription.date}</td>
                             <td>{prescription.name}</td>
                             <td>{prescription.phone}</td>
-                            <button type="button" className="btn-brand text-white">View</button>
+                            <button type="button" className="btn btn-outline-primary">View</button>
                         </tr>
                         <br/>
                     </tbody>
                 )
             }
-
         </table>
     );
 };
