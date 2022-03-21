@@ -1,6 +1,10 @@
-.testimonials-section .container{
-    background-image:url('../../../images/quote.png');
-    background-position: top right;
-    background-repeat:no-repeat;
-    background-size: 150px;
+.testimonials-section .container {
+  background-image: url("../../../images/quote.png");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+#testimonials {
+  display: flex;
 }

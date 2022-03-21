@@ -1,0 +1,9 @@
+.error {
+  text-align: center;
+  margin-left: 160px;
+}
+
+#updateForm {
+  width: 60%;
+  margin: 0 auto;
+}

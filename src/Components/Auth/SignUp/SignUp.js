@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../Contexts/AuthContext';
 import signUpBg from '../../../images/loginBg.png';
 import Navbar from '../../Shared/Navbar/Navbar';
@@ -56,7 +56,8 @@ const SignUp = () => {
                         }
                         <input type="submit" className="btn-brand" value="Sign Up" />
                     </form>
-
+                    <br />
+                    <span>Already have an account?<Link to='/login'> Login </Link></span>
                 </div>
                 <div className="col-md-6 login-right">
                     <img src={signUpBg} alt="loginBG" className="img-fluid" />

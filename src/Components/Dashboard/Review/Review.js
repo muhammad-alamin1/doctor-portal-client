@@ -2,8 +2,8 @@ import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 
 export default function Review() {
-  return (
-    <div className="row">
+    return (
+        <div className="row">
             <div className="col-md-2">
                 <Sidebar />
             </div>
@@ -34,5 +34,5 @@ export default function Review() {
                 </form>
             </div>
         </div>
-  )
+    )
 }

@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { faCalendar, faCog, faFileAlt, faGripHorizontal, faHome, faSignOutAlt, faUser, faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faFileAlt, faGripHorizontal, faHome, faUser, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useAuth } from '../../../Contexts/AuthContext';
 import './sidebar.css';
 
 
 const Sidebar = () => {
+    const { logout } = useAuth();
     return (
         <div className="sidebar d-flex flex-column justify-content-between py-5 px-0" style={{ height: '100vh', width: '220px' }}>
             <ul className="">
@@ -50,15 +52,9 @@ const Sidebar = () => {
                         <FontAwesomeIcon icon={faUser} /> <span>Review</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/" className="text-white">
-                        <FontAwesomeIcon icon={faCog} /><span>Settings</span>
-                    </a>
-                </li>
-                <div style={{ marginTop: '260px' }}>
-                    <a style={{ textDecoration: 'none' }} href="/home" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></a>
-                </div>
+                <span className="material-icons-outlined" title="Logout" onClick={logout} style={{ cursor: 'pointer' }}  > logout </span>
             </ul>
+
         </div>
     );
 };

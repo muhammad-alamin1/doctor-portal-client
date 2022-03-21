@@ -16,7 +16,6 @@ export function AuthProvider({ children }) {
     const [currUser, setCurrUser] = useState();
     const [loading, setLoading] = useState(true);
 
-
     // firebase state change 
     useEffect(() => {
         const auth = getAuth();

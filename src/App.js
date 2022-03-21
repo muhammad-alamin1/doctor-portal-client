@@ -9,6 +9,7 @@ import AllPatientsPrescription from './Components/AllPatientsPrescription/AllPat
 import Appointment from './Components/Appointment/Appointment/Appointment';
 import Login from './Components/Auth/Login/Login';
 import PrivateRoute from './Components/Auth/PrivateRoute/PrivateRoute';
+import PublicRoute from './Components/Auth/PublicRoute/PublicRoute';
 import SignUp from './Components/Auth/SignUp/SignUp';
 import AddDoctor from './Components/Dashboard/AddDoctor/AddDoctor';
 import DoctorInfo from './Components/Dashboard/DoctorInfo/DoctorInfo';
@@ -20,20 +21,19 @@ import { AuthProvider } from './Contexts/AuthContext';
 
 
 function App() {
-
   return (
     <Router>
       <AuthProvider>
         <Routes>
           <Route path="/dashboard" element={<PrivateRoute ><MainDashboard /></PrivateRoute>} />
-          <Route path="/dashboard/users/appointment-booking" element={<Appointment />} />
-          <Route path="/dashboard/admin/appointments/lists" element={<AllPatients />} />
-          <Route path="/dashboard/admin/prescriptions/lists" element={<AllPatientsPrescription />} />
-          <Route path="/dashboard/admin/add-doctor" element={<AddDoctor />} />
-          <Route path="/dashboard/admin/doctor/info" element={<DoctorInfo />} />
-          <Route path="/users/review" element={<Review />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard/users/appointment-booking" element={<PrivateRoute><Appointment /></PrivateRoute>} />
+          <Route path="/dashboard/admin/appointments/lists" element={<PrivateRoute><AllPatients /></PrivateRoute>} />
+          <Route path="/dashboard/admin/prescriptions/lists" element={<PrivateRoute><AllPatientsPrescription /></PrivateRoute>} />
+          <Route path="/dashboard/admin/add-doctor" element={<PrivateRoute><AddDoctor /></PrivateRoute>} />
+          <Route path="/dashboard/admin/doctor/info" element={<PrivateRoute><DoctorInfo /></PrivateRoute>} />
+          <Route path="/users/review" element={<PrivateRoute><Review /></PrivateRoute>} />
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/signup" element={<PublicRoute><SignUp /> </PublicRoute>} />
           <Route exact path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

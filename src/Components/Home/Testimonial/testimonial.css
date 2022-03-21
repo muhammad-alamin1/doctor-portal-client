@@ -1,17 +1,13 @@
-.card .card-footer{
-    background:transparent;
+.card .card-footer {
+  background: transparent;
 }
-#card{
-    max-width: 100%;
-    min-height: auto;
+#card {
+  min-height: auto;
 }
-.card-container{
-    float: left;
-    max-width: 33.33%;
-    
+.card-container {
 }
-.card{
-    margin: 10px 10px;
-    padding:10px;
-    box-shadow: 4px 4px 10px rgb(83, 78, 78);
+.card {
+  margin: 10px 10px;
+  padding: 10px;
+  box-shadow: 4px 4px 10px rgb(83, 78, 78);
 }
