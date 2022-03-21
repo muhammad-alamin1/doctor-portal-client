@@ -6,6 +6,7 @@ import {
 import './App.css';
 import AllPatients from './Components/AllPatients/AllPatients/AllPatients';
 import AllPatientsPrescription from './Components/AllPatientsPrescription/AllPatientsPrescription/AllPatientsPrescription';
+import SendPrescription from './Components/AllPatientsPrescription/SendPrescription/SendPrescription';
 import Appointment from './Components/Appointment/Appointment/Appointment';
 import Login from './Components/Auth/Login/Login';
 import PrivateRoute from './Components/Auth/PrivateRoute/PrivateRoute';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/dashboard/users/appointment-booking" element={<PrivateRoute><Appointment /></PrivateRoute>} />
           <Route path="/dashboard/admin/appointments/lists" element={<PrivateRoute><AllPatients /></PrivateRoute>} />
           <Route path="/dashboard/admin/prescriptions/lists" element={<PrivateRoute><AllPatientsPrescription /></PrivateRoute>} />
+          <Route path="/dashboard/admin/prescription/send" element={<PrivateRoute><SendPrescription /></PrivateRoute>} />
           <Route path="/dashboard/admin/add-doctor" element={<PrivateRoute><AddDoctor /></PrivateRoute>} />
           <Route path="/dashboard/admin/doctor/info" element={<PrivateRoute><DoctorInfo /></PrivateRoute>} />
           <Route path="/users/review" element={<PrivateRoute><Review /></PrivateRoute>} />
