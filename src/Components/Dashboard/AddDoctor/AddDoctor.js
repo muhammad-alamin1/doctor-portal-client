@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
+import "./adddoctor.css";
 
 const AddDoctor = () => {
   return (
@@ -12,9 +13,10 @@ const AddDoctor = () => {
           Add a Doctor
         </h4>
         <form
-          action="http://localhost:5000/doctor/upload"
+          action="https://life-care-server1.herokuapp.com/doctor/upload"
           method="POST"
           enctype="multipart/form-data"
+          id="add-Doctor"
         >
           <div class="form-group">
             <label for="name">Name</label>

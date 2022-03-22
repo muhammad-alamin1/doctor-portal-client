@@ -10,7 +10,7 @@ const SendPrescription = () => {
 
   // patient info
   useEffect(() => {
-    fetch("http://localhost:5000/addAppointment")
+    fetch("https://life-care-server1.herokuapp.com/addAppointment")
       .then((response) => response.json())
       .then((data) => {
         setAppointments(data.allAppointments);
@@ -19,7 +19,7 @@ const SendPrescription = () => {
 
   // all doctor
   useEffect(() => {
-    fetch(`http://localhost:5000/doctor/all`)
+    fetch(`https://life-care-server1.herokuapp.com/doctor/all`)
       .then((res) => res.json())
       .then((data) => {
         setInfo(data.allDoctors);
@@ -83,7 +83,7 @@ const SendPrescription = () => {
         <div id="send-prescription" className="py-3">
           <form
             method="POST"
-            action="http://localhost:5000/prescription"
+            action="https://life-care-server1.herokuapp.com/prescription"
             enctype="multipart/form-data"
           >
             <input

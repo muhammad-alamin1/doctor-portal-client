@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 const DashboardCard = ({ data, allPatients }) => {
-    console.log(data)
     return (
 
         <div className=" col-md-3">

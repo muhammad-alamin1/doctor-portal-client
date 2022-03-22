@@ -10,7 +10,7 @@ const DoctorInfo = () => {
 
   // all doctor
   useEffect(() => {
-    fetch(`http://localhost:5000/doctor/all`)
+    fetch(`https://life-care-server1.herokuapp.com/doctor/all`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data.allDoctors);
@@ -20,7 +20,7 @@ const DoctorInfo = () => {
 
   // delete doctor
   const deleteDoctor = async (id) => {
-    await fetch(`http://localhost:5000/doctor/delete/${id}`, {
+    await fetch(`https://life-care-server1.herokuapp.com/doctor/delete/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -38,7 +38,7 @@ const DoctorInfo = () => {
   // update doctor
   const updateDoctor = async (id) => {
     setId(id);
-    await fetch(`http://localhost:5000/doctor/single/${id}`)
+    await fetch(`https://life-care-server1.herokuapp.com/doctor/single/${id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -85,7 +85,7 @@ const DoctorInfo = () => {
               <td>{doc.date}</td>
               <td>
                 <a
-                  href={`http://localhost:5000/uploads/${doc.images}`}
+                  href={`https://life-care-server1.herokuapp.com/uploads/${doc.images}`}
                   target="_blank"
                 >
                   View
@@ -114,7 +114,7 @@ const DoctorInfo = () => {
         <hr />
         <h3 className="my-4">Update doctor information</h3>
         <form
-          action={`http://localhost:5000/doctor/update/${id}`}
+          action={`https://life-care-server1.herokuapp.com/doctor/update/${id}`}
           method="POST"
         >
           <div class="form-group">

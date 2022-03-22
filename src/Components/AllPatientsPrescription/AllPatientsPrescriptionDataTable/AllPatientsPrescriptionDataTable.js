@@ -23,7 +23,7 @@ const AllPatientsPrescriptionDataTable = ({ prescriptions }) => {
             <td>{prescription.doctor}</td>
             <td>
               <a
-                href={`http://localhost:5000/uploads/${prescription.file}`}
+                href={`https://life-care-server1.herokuapp.com/uploads/${prescription.file}`}
                 target="_blank"
                 className="btn btn-outline-success"
               >

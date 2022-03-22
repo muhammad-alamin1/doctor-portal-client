@@ -1,11 +1,11 @@
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../../Contexts/AuthContext';
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../../Contexts/AuthContext";
 
 export default function PublicRoute({ children }) {
-    const { currUser } = useAuth();
+  const { currUser } = useAuth();
 
-    if (!currUser) {
-        return children
-    }
-    return <Navigate to="/dashboard" />;
+  if (!currUser) {
+    return children;
+  }
+  return <Navigate to="/dashboard" />;
 }
