@@ -6,3 +6,7 @@
 - In Patient Dashboard, Patients can see the appointments they made and leave a review
 - In Admin Dashboard, Admin can see all the appointments all the users made. Admin can
   add or manage service, and Admin can grant Admin access to another person.
+
+--> Admin login 
+* mail: anonymous.daddy.uk@gmail.com 
+* pass: 123456

@@ -1,7 +1,14 @@
 import "./ContactForm.css";
-import React from "react";
+import React, {useState} from "react";
 
 const ContactForm = () => {
+  const [success, setSuccess] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSuccess('Message send successfully. We will contact you soon.');
+  } 
+
   return (
     <section id="contact-form">
       <div className="contact-header text-center my-5 " id="form-header">
@@ -10,11 +17,13 @@ const ContactForm = () => {
         </h5>
         <h3 className="text-white">Always Contact With Us</h3>
       </div>
+      {success && <p className="success">{success}</p>}
       <div id="form-div">
         <form
           action="https://life-care-server1.herokuapp.com/contact-us"
           method="POST"
           className="text-center "
+          onSubmit={handleSubmit}
         >
           <input
             type="email"
