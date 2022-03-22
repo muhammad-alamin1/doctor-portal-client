@@ -1,4 +1,4 @@
-# Doctor Portal
+# Life Care single page app(SPA)
 
 - It is a MERN Stack SPA where patients can make doctor's appointment for them.
 - Patients have to register in first to take any appointment.
