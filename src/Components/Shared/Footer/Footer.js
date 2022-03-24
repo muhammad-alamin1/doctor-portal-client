@@ -111,7 +111,7 @@ const Footer = () => {
       </div>
       <div className="copy-right text-center  " style={{ marginTop: "35px" }}>
         <h6 className="text-secondary">
-          &copy; copyright {new Date().getFullYear()} Muhammad All Right reserved{" "}
+          &copy; Copyright {new Date().getFullYear()} Muhammad all right reserved{" "}
         </h6>
       </div>
     </footer>

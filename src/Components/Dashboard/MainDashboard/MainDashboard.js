@@ -36,7 +36,6 @@ const MainDashboard = () => {
       .then((response) => response.json())
       .then((data) => {
         setAppointments(data.allAppointments);
-        console.log(data.allAppointments.length);
       });
   }, []);
   document.title = "Dashboard";

@@ -42,7 +42,7 @@ const Login = () => {
     <div className="login-form container">
       <Navbar />
       <div className="row align-items-center">
-        <div className="col-md-6  login-left">
+        <div className="col-md-6  login-left my-5">
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">E-mail</label>
             <input
@@ -77,7 +77,6 @@ const Login = () => {
           </span>
         </div>
         <div className="col-md-6 login-right">
-          <img src={LoginBg} alt="loginBG" className="img-fluid" />
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ const SignUp = () => {
     <div className="login-form container">
       <Navbar />
       <div className="row align-items-center">
-        <div className="col-md-6  login-left">
+        <div className="col-md-6  login-left my-5">
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">User name</label>
             <input
@@ -82,7 +82,6 @@ const SignUp = () => {
           </span>
         </div>
         <div className="col-md-6 login-right">
-          <img src={signUpBg} alt="loginBG" className="img-fluid" />
         </div>
       </div>
     </div>

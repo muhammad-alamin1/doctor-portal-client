@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 
@@ -16,6 +16,7 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
+  const [success, setSuccess] = useState("");
   // react hook form
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
@@ -31,10 +32,8 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
     })
       .then((res) => res.json())
       .then((success) => {
-        if (success) {
-          closeModal();
-          alert("Appointment Created Successfully");
-        }
+        setSuccess("Appointment Created Successfully");
+        closeModal();
       });
   };
 
@@ -50,6 +49,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
         <p className="text-secondary text-center">
           <small>ON {date.toDateString()}</small>
         </p>
+        {success && <p className="success">{success}</p>}
         <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <input
