@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import chair from "../../../images/chari.png";
+import chair from "../../../images/h-doctor.jpeg";
 import "./headerMain.css";
 
 const HeaderMain = () => {

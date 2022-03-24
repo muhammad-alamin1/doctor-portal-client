@@ -43,15 +43,6 @@ const Footer = () => {
             <li>
               <a href="#">Tooth Extraction</a>
             </li>
-            <li>
-              <a href="#">Check Up</a>
-            </li>
-            <li>
-              <a href="#">Check Up</a>
-            </li>
-            <li>
-              <a href="#">Check Up</a>
-            </li>
           </ul>
         </div>
         <div className="col-md-3">
@@ -69,15 +60,6 @@ const Footer = () => {
             <li>
               <a href="#">Tooth Extraction</a>
             </li>
-            <li>
-              <a href="#">Check Up</a>
-            </li>
-            <li>
-              <a href="#">Check Up</a>
-            </li>
-            <li>
-              <a href="#">Check Up</a>
-            </li>
           </ul>
         </div>
         <div className="col-md-3">
@@ -85,7 +67,7 @@ const Footer = () => {
           <ul>
             <li>
               <a href="#">
-                New York-1101010 Hudson <br /> Yards
+                North Khulshi, Chittagong, Bangladesh
               </a>
             </li>
             <ul className="d-flex my-3 ">
@@ -93,7 +75,7 @@ const Footer = () => {
                 className="me-2 text-center icon"
                 style={{ fontSize: "20px" }}
               >
-                <a href="https://web.facebook.com/media/set/?set=a.120602635436738&type=3&_rdc=1&_rdr">
+                <a href="https://web.facebook.com/">
                   <FontAwesomeIcon
                     className="icon active-icon"
                     icon={faFacebookF}
@@ -112,7 +94,7 @@ const Footer = () => {
                 className="me-2 text-center icon"
                 style={{ fontSize: "20px" }}
               >
-                <a href="https://www.instagram.com/iqbal71617/">
+                <a href="https://www.instagram.com/">
                   <FontAwesomeIcon className="icon" icon={faInstagram} />
                 </a>
               </li>
@@ -129,7 +111,7 @@ const Footer = () => {
       </div>
       <div className="copy-right text-center  " style={{ marginTop: "35px" }}>
         <h6 className="text-secondary">
-          Copyright {new Date().getFullYear()} All Right reserved{" "}
+          &copy; copyright {new Date().getFullYear()} Muhammad All Right reserved{" "}
         </h6>
       </div>
     </footer>

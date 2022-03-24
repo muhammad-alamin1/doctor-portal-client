@@ -18,7 +18,7 @@ const BusinessInfo = () => {
     {
       id: 2,
       title: "Visit Our location",
-      description: "Brooklyn, NY 10003 USA",
+      description: "North Khulshi NY 203, Chittagong, Bangladesh",
       icon: faMapMarkerAlt,
       background: "dark",
     },
