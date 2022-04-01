@@ -55,6 +55,9 @@ const MainDashboard = () => {
             </strong>
           </h4>
         </div>
+        {
+          currUser.email === 'anonymous.daddy.uk@gmail.com' ? '' : <p>Admin: anonymous.daddy.uk@gmail.com   pass: 123456</p>
+        }
         <div className="row">
           {dashboardFakeData.map((data) => (
             <DashboardCard
